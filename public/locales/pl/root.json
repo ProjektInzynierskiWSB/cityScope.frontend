@@ -1,0 +1,10 @@
+{
+  "main": {
+    "brand": "CityScope"
+  },
+  "notFound": {
+    "heading": "Wystąpił błąd",
+    "description": "Przepraszamy ale podany adres strony nie istnieje",
+    "button": "Powróć do strony głównej"
+  }
+}
