@@ -17,7 +17,7 @@ export const NavigationButtonContainer = styled('div')(({ theme }) => ({
   borderRadius: 10,
   height: 50,
   width: 250,
-  top: -40,
+  top: theme.spacing(-5),
   zIndex: 10,
   right: 30,
   backgroundColor:

@@ -1,7 +1,7 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react'
 import { PaletteMode, ThemeProvider, createTheme } from '@mui/material'
 import { getThemeOptions } from 'shared/theme'
-import { ThemeContextProvider } from './ThemeContext'
+import { ThemeContextProvider } from '../../utils/ThemeContext'
 
 interface CustomContextThemeProviderProps extends PropsWithChildren<{}> {}
 

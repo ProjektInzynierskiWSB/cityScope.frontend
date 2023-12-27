@@ -43,6 +43,6 @@ export const StyledSwitch = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-track': {
     opacity: 1,
     backgroundColor: theme.palette.primary.light,
-    borderRadius: 20 / 2,
+    borderRadius: 10,
   },
 }))

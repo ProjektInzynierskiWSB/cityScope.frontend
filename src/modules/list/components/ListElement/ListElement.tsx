@@ -23,6 +23,10 @@ const ListElement = ({
 }: ItemProps) => {
   const { t } = useModuleTranslation()
   const navigate = useNavigate()
+  const onElementCLick = (id: number) => {
+    navigate(`${paths.list}/${id}`)
+  }
+
   return (
     <Container>
       <ImageContainer>
@@ -34,10 +38,7 @@ const ListElement = ({
         <DescriptionContainer>
           <Typography variant="body1">{description}</Typography>
         </DescriptionContainer>
-        <StyledButton
-          onClick={() => navigate(`${paths.list}/${id}`)}
-          variant="contained"
-        >
+        <StyledButton onClick={() => onElementCLick(id)} variant="contained">
           {t('seeOffer')}
         </StyledButton>
       </ContentContainer>

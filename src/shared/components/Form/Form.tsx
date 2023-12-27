@@ -16,12 +16,12 @@ export type FormProps<T extends FieldValues> = Omit<
   formProps?: Partial<HTMLProps<HTMLFormElement>>
 }
 
-const Form = ({
+const Form = <T extends FieldValues>({
   children,
   onSubmit,
   formProps,
   ...props
-}: PropsWithChildren<FormProps<any>>) => (
+}: PropsWithChildren<FormProps<T>>) => (
   <form {...formProps} onSubmit={props.handleSubmit(onSubmit)}>
     <FormProvider {...props}>{children}</FormProvider>
   </form>

@@ -15,17 +15,10 @@ const MuiButton: Components['MuiButton'] = {
     },
     outlined: {
       borderWidth: 1,
+      padding: '3px 23px',
       '&:hover': {
         borderWidth: 1,
       },
-    },
-    outlinedPrimary: {
-      borderColor: palette.primary?.main,
-      color: palette.primary?.dark,
-    },
-    outlinedSecondary: {
-      borderColor: palette.secondary?.main,
-      color: palette.secondary?.dark,
     },
     contained: {
       color: palette.text?.secondary,

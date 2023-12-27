@@ -4,14 +4,15 @@ export const Container = styled('div')(({ theme }) => ({
   height: 400,
   display: 'flex',
   borderRadius: 8,
-  border:
-    theme.palette.mode === 'light'
-      ? 'none'
-      : `solid 1px ${alpha(theme.palette.primary.main, 0.4)}`,
-  boxShadow:
-    theme.palette.mode === 'light'
-      ? '0px 0px 20px 0px rgba(66, 68, 90, 0.05)'
-      : 'none',
+  ...(theme.palette.mode === 'light'
+    ? {
+        boxShadow: '0px 0px 20px 0px rgba(66, 68, 90, 0.05)',
+        border: 'none',
+      }
+    : {
+        boxShadow: 'none',
+        border: `solid 1px ${alpha(theme.palette.primary.main, 0.4)}`,
+      }),
 }))
 
 export const ImageContainer = styled('div')({

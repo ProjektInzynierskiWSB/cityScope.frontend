@@ -2,5 +2,13 @@
   "topBar": {
     "list": "Lista",
     "contact": "Kontakt"
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "email": "Prosimy podać właściwy e-mail",
+    "password": "Podane hasło nie spełnia wymogów",
+    "passwordRepeat": "Podane hasła nie się jednakowe",
+    "maxLength": "Maksymalna liczba znaków to {{value}}",
+    "minLength": "Minimalna liczba znaków to {{value}}"
   }
 }

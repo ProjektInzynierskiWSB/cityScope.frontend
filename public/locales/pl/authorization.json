@@ -1,0 +1,16 @@
+{
+  "welcomeText": "Witamy na stronie CityScope!",
+  "registerInvitation": "Nie posiadasz jeszcze konta?",
+  "register": "Cieszymy się że chcesz do nas dołączyć :)",
+  "registerInfo": "Podaj swój adres e-mail, oraz silne hasło zawierające przynajmniej jedną: wielką literę, cyfrę i znak specjalny.",
+  "inputs": {
+    "email": "Email",
+    "password": "Hasło",
+    "passwordRepeat": "Powtórz hasło"
+  },
+  "buttons": {
+    "submitLogin": "Zaloguj się",
+    "register": "Zarejestruj się",
+    "backToLogin": "Powróć do logowania"
+  }
+}

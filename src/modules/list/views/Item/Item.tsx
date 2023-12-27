@@ -4,7 +4,7 @@ import { mockItems } from '../ItemList/ItemList.mock'
 import { Container } from './Item.styles'
 
 const Item = () => {
-  let { id } = useParams()
+  const { id } = useParams()
   const mockItem = mockItems[3]
   return (
     <Container>

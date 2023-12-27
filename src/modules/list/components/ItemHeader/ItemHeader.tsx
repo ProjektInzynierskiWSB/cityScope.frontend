@@ -20,7 +20,7 @@ const ItemHeader = ({
   return (
     <>
       <Typography variant="h4" paragraph>
-        {productName + '/' + id}
+        {productName + id}
       </Typography>
       <Container>
         <ImageContainer>
@@ -30,6 +30,7 @@ const ItemHeader = ({
           <Row>
             <User userImg={userImg} user={user} />
             <Typography variant="body1">oceny</Typography>
+            {/* TODO: prawilnie by bylo wszystkie stringi wrzucic do i18n, zawsze na plus w inzynierce */}
           </Row>
           <Typography variant="body1">{description}</Typography>
           <Button variant="contained">Zamów</Button>

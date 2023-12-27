@@ -4,6 +4,9 @@ export type { ErrorBoundaryProps, ErrorBoundaryState } from './ErrorBoundary'
 export { default as Form } from './Form'
 export type { FormProps } from './Form'
 
+export { default as TextField } from './TextField'
+export type { TextFieldProps } from './TextField'
+
 export { default as ImageWithCaption } from './ImageWithCaption'
 
 export { default as Layout } from './Layout'
@@ -20,6 +23,4 @@ export type { NotFoundProps } from './NotFound'
 
 export { default as TopBar } from './TopBar'
 
-export { default as CustomContextThemeProvider } from '../utils/CustomContextThemeProvider'
-
-export { useThemeContext, ThemeContextProvider } from '../utils/ThemeContext'
+export { default as CustomContextThemeProvider } from './CustomContextThemeProvider'

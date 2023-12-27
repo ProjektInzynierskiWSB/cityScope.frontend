@@ -12,10 +12,11 @@ const ImageWithCaption = ({
   width,
   height,
 }: ImageWithCaptionProps) => {
+  const CAPTION = 'pch.vector from Freepik'
   return (
     <Container>
       <Image sx={{ width, height }} src={imgSrc} alt={imgAlt} />
-      <Caption variant="caption">pch.vector from Freepik</Caption>
+      <Caption variant="caption">{CAPTION}</Caption>
     </Container>
   )
 }

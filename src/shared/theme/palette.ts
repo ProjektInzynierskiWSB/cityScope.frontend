@@ -24,13 +24,13 @@ const palette: Partial<Palette> = {
   primary: {
     light: '#FF999A',
     main: '#F94D4E',
-    dark: '#F83434',
+    dark: '#D42633',
     contrastText: '#343434',
   },
   secondary: {
     light: '#95C2F3',
     main: '#67A7EE',
-    dark: '#398CE9',
+    dark: '#3C84C8',
     contrastText: '#F9F7EC',
   },
   text: {

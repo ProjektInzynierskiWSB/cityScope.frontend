@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Link as RouterLink } from 'react-router-dom'
+import { LinkProps, Link as RouterLink } from 'react-router-dom'
 import { Container, Typography, Button } from '@mui/material'
 import { paths } from 'config'
 
@@ -15,7 +15,11 @@ const NotFound = (props: NotFoundProps) => {
       <Typography paragraph gutterBottom>
         {t('notFound.description')}
       </Typography>
-      <Button component={RouterLink} to={paths.root} variant="contained">
+      <Button
+        component={(props: LinkProps) => <RouterLink {...props} />}
+        to={paths.root}
+        variant="contained"
+      >
         {t('notFound.button')}
       </Button>
     </Container>

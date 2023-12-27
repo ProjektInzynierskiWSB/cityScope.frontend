@@ -16,10 +16,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "baseUrl": "./src"
   },
-  "include": ["./src/*", "global.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["./src/*", "global.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["dist"]
 }
