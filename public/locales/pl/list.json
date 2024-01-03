@@ -1,3 +1,18 @@
 {
-  "seeOffer": "zobacz ofertę"
+  "seeAnnouncement": "zobacz ofertę",
+  "navigateToAnnouncementForm": {
+    "content": "Również masz coś na sprzedaż? Nie czekaj, przejdź dalej i",
+    "buttonText": "Stwóż własną ofertę"
+  },
+  "announcementForm": {
+    "title": "Wypełnij poniższe pola aby dodać własne ogłoszenie",
+    "inputs": {
+      "title": "Tytuł",
+      "description": "Opis",
+      "startDate": "Data rozpoczęcia",
+      "price": "Cena",
+      "category": "Kategoria"
+    },
+    "submit": "Opublikuj ogłoszenie"
+  }
 }

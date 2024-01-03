@@ -1,9 +1,14 @@
-import { Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { Button, Typography } from '@mui/material'
+import { useModuleTranslation } from 'modules/home/utils'
+import { paths } from 'config'
 import { ImageWithCaption } from 'shared/components'
 import { images } from './Story.consts'
 import { Container, Row, TextContainer } from './Story.styles'
 
 const Story = () => {
+  const navigate = useNavigate()
+  const { t } = useModuleTranslation()
   return (
     <Container>
       {images.map((image, index) => (
@@ -16,7 +21,15 @@ const Story = () => {
             height={475}
           />
           <TextContainer>
-            <Typography variant="h6">{image.description}</Typography>
+            <Typography variant="h6">{t(image.description)}</Typography>
+            {index % 2 !== 0 && (
+              <Button
+                variant="contained"
+                onClick={() => navigate(paths.offerForm)}
+              >
+                {t('story.buttonText')}
+              </Button>
+            )}
           </TextContainer>
         </Row>
       ))}

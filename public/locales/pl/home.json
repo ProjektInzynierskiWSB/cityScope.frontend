@@ -5,5 +5,11 @@
     "title": "Zbędne przedmioty cię przerastają?",
     "subtitle": "Nie ma problemu! Z nami nie skończysz jak pan po prawej :v",
     "subtitleV2": "Dowiedz się jak w łatwy i przyjemny sposób możesz sprzedać lub wymienić swoje niepotrzebne rzeczy innej osobie z twojej okolicy"
+  },
+  "story": {
+    "first": "Zacznij od rozpoznania się w swoich przedmiotach i zastanów się co już nie jest ci potrzebne. Często chomikujemy swoje rzeczy, które mogliśmy by wymienić lub sprzedać ale myślimy że dużo z tym roboty. Spokojnie wybranie czego chcemy się pozbyć to najcięższy krok ;)",
+    "second": "Po wybraniu przedmiotu można już rozsiąść się wygodnie w fotelu i uzupełnić prosty formularz do wystawienia oferty. Lepiej wypełnione opisy mogą się lepiej klikać co zwiększy szanse na wymianę bądź sprzedarz. Możesz szybko przeskoczyć do wypełniania klikając w poniższy przycisk",
+    "third": "Ostatni krok polega na znalezieniu osoby zainteresowanej zostaniem nowym właścicielem twojego przedmiotu. Skontaktuje się z tobą w celu sfinalizowania tranzakcji",
+    "buttonText": "Stwóż własną ofertę"
   }
 }

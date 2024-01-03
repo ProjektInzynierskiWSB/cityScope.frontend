@@ -39,7 +39,7 @@ const ListElement = ({
           <Typography variant="body1">{description}</Typography>
         </DescriptionContainer>
         <StyledButton onClick={() => onElementCLick(id)} variant="contained">
-          {t('seeOffer')}
+          {t('seeAnnouncement')}
         </StyledButton>
       </ContentContainer>
     </Container>

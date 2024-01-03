@@ -21,6 +21,9 @@ export const Row = styled('div', {
 
 export const TextContainer = styled('div')(({ theme }) => ({
   display: 'flex',
-  alignItems: 'center',
+  flexDirection: 'column',
+  alignItems: 'flex-end',
+  justifyContent: 'center',
   padding: theme.spacing(6),
+  gap: theme.spacing(3),
 }))
