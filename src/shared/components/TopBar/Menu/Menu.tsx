@@ -9,10 +9,12 @@ const Menu = () => {
 
   return (
     <Container>
+      <MenuButton variant="text" onClick={() => navigate(paths.offerForm)}>
+        {t('topBar.createAnnouncement')}
+      </MenuButton>
       <MenuButton variant="text" onClick={() => navigate(paths.list)}>
         {t('topBar.list')}
       </MenuButton>
-      <MenuButton variant="text">{t('topBar.contact')}</MenuButton>
     </Container>
   )
 }

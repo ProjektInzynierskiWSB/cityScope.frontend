@@ -1,7 +1,7 @@
 {
   "topBar": {
     "list": "Lista",
-    "contact": "Kontakt"
+    "createAnnouncement": "Utwórz własną oferę"
   },
   "validation": {
     "required": "To pole jest wymagane",
@@ -10,5 +10,10 @@
     "passwordRepeat": "Podane hasła nie się jednakowe",
     "maxLength": "Maksymalna liczba znaków to {{value}}",
     "minLength": "Minimalna liczba znaków to {{value}}"
+  },
+  "dropDown": {
+    "drag&Drop": "Przenieś zdjęcie tutaj lub",
+    "dropHere": "Upuść tutaj",
+    "add": "Wybierz zdjęcie z plików"
   }
 }

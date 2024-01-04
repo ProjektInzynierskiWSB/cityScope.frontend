@@ -19,6 +19,15 @@ const routes: RouteObject[] = [
         path: paths.item,
         element: <Loadable component={lazy(() => import('./views/Item'))} />,
       },
+      {
+        index: true,
+        path: paths.offerForm,
+        element: (
+          <Loadable
+            component={lazy(() => import('./views/CreateAnnouncement'))}
+          />
+        ),
+      },
     ],
   },
 ]
