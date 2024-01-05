@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import { Form, TextField } from 'shared/components'
 import { useModuleTranslation } from '../../utils'
-import { useFormProps } from './RegisterForm.service'
+import { useFormProps } from './RegisterForm.config'
 
 const RegisterForm = ({
   setIsLoginView,
@@ -28,10 +28,10 @@ const RegisterForm = ({
         type="password"
       />
       <TextField
-        name="passwordRepeat"
+        name="confirmPassword"
         label={t('inputs.passwordRepeat')}
         variant="filled"
-        id="passwordRepeat"
+        id="confirmPassword"
         type="password"
       />
       <Button type="submit" variant="contained" fullWidth>

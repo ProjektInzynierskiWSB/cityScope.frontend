@@ -2,6 +2,7 @@ import { useController, useFormContext } from 'react-hook-form'
 import { MenuItem, MenuItemProps, Select, SelectProps } from '@mui/material'
 import { FieldLabel, StyledFormControl } from './SelectField.styles'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface SelectFieldProps<T, K> extends SelectProps {
   name: string
   label: string
