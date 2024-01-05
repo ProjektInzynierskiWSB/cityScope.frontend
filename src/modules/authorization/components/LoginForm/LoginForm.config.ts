@@ -1,5 +1,8 @@
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useLoginMutation } from 'services/authApi'
+import { paths } from 'config'
 import { useLoginSchema } from './LoginForm.validator'
 
 export enum LoginFormFields {
@@ -18,8 +21,19 @@ export const defaultValues: LoginFormValues = {
 }
 
 const useOnSubmit = (reset: () => void) => {
-  const onSubmit = (data: LoginFormValues) => {
-    console.log(data)
+  const [login] = useLoginMutation()
+  const navigate = useNavigate()
+
+  const onSubmit = (formValues: LoginFormValues) => {
+    login(formValues)
+      .unwrap()
+      .then(response => {
+        console.log(response)
+        reset()
+        navigate(paths.home)
+      })
+      .catch(e => console.log(e))
+    console.log(formValues)
   }
   return onSubmit
 }
