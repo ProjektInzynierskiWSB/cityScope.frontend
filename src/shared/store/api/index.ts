@@ -11,6 +11,9 @@ export type {
   ApiNotificationsMiddlewarePayload,
 } from './api.types'
 
+export { listApi } from './list'
+export type { MainCategoryResponse, MainCategory } from './list'
+
 export { apiNotificationsMiddleware } from './api.middleware'
 
 export { default } from './api'
