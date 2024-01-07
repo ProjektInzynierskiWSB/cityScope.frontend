@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useLoginMutation } from 'services/authApi'
 import { paths } from 'config'
+import { authApi } from 'shared/store/api'
 import { useLoginSchema } from './LoginForm.validator'
 
 export enum LoginFormFields {
@@ -20,20 +21,20 @@ export const defaultValues: LoginFormValues = {
   [LoginFormFields.Password]: '',
 }
 
-const useOnSubmit = (reset: () => void) => {
-  const [login] = useLoginMutation()
+const useOnSubmit = () => {
+  const [login] = authApi.useLoginMutation()
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
-  const onSubmit = (formValues: LoginFormValues) => {
-    login(formValues)
-      .unwrap()
-      .then(response => {
-        console.log(response)
-        reset()
-        navigate(paths.home)
-      })
-      .catch(e => console.log(e))
-    console.log(formValues)
+  const onSubmit = async (formValues: LoginFormValues) => {
+    try {
+      await login({
+        ...formValues,
+        errorMessage: t('notifications.error') || true,
+        successMessage: t('notifications.login.success') || true,
+      }).unwrap()
+      navigate(paths.home)
+    } catch {}
   }
   return onSubmit
 }
@@ -46,6 +47,6 @@ export const useFormProps = () => {
     reValidateMode: 'onSubmit',
   })
 
-  const onSubmit = useOnSubmit(methods.reset)
+  const onSubmit = useOnSubmit()
   return { ...methods, onSubmit }
 }

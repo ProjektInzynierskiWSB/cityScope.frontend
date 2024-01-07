@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material'
+import { useModuleTranslation } from 'modules/list/utils'
 import User from '../User'
 import { ItemProps } from '../../views/ItemList/ItemList.types'
 import {
@@ -17,6 +18,7 @@ const ItemHeader = ({
   id,
   user,
 }: ItemProps) => {
+  const { t } = useModuleTranslation()
   return (
     <>
       <Typography variant="h4" paragraph>
@@ -29,11 +31,10 @@ const ItemHeader = ({
         <ContentContainer>
           <Row>
             <User userImg={userImg} user={user} />
-            <Typography variant="body1">oceny</Typography>
-            {/* TODO: prawilnie by bylo wszystkie stringi wrzucic do i18n, zawsze na plus w inzynierce */}
+            <Typography variant="body1">{t('announcement.grades')}</Typography>
           </Row>
           <Typography variant="body1">{description}</Typography>
-          <Button variant="contained">Zamów</Button>
+          <Button variant="contained">{t('announcement.order')}</Button>
         </ContentContainer>
       </Container>
     </>

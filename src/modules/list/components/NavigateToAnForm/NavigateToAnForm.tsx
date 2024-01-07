@@ -12,7 +12,10 @@ const NavigateToAnnouncementFormComponent = () => {
       <Typography variant="h5">
         {t('navigateToAnnouncementForm.content')}
       </Typography>
-      <Button variant="contained" onClick={() => navigate(paths.offerForm)}>
+      <Button
+        variant="contained"
+        onClick={() => navigate(paths.announcementForm)}
+      >
         {t('navigateToAnnouncementForm.buttonText')}
       </Button>
     </Container>

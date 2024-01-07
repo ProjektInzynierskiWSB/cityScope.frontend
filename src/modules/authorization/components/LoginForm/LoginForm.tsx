@@ -1,13 +1,12 @@
 import { Button } from '@mui/material'
 import { Form, TextField } from 'shared/components'
 import { useModuleTranslation } from '../../utils'
-import { useFormProps } from './LoginForm.config'
+import { useFormProps } from './LoginForm.utils'
 
 const LoginForm = () => {
   const { onSubmit } = useFormProps()
   const formProps = useFormProps()
   const { t } = useModuleTranslation()
-
   return (
     <Form {...formProps} onSubmit={onSubmit}>
       <TextField

@@ -4,7 +4,7 @@ const paths = {
   home: '/home',
   list: '/list',
   item: '/list/:id',
-  offerForm: '/list/offer-form',
+  announcementForm: '/list/announcement-form',
 }
 
 export default paths

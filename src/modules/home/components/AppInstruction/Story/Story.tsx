@@ -25,7 +25,7 @@ const Story = () => {
             {index % 2 !== 0 && (
               <Button
                 variant="contained"
-                onClick={() => navigate(paths.offerForm)}
+                onClick={() => navigate(paths.announcementForm)}
               >
                 {t('story.buttonText')}
               </Button>
