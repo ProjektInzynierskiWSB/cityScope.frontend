@@ -1,7 +1,11 @@
 {
   "topBar": {
     "list": "Lista",
-    "createAnnouncement": "Utwórz własną oferę"
+    "createAnnouncement": "Utwórz własną oferę",
+    "login": "Zaloguj się",
+    "profileOptions": "Opcje profilu",
+    "myProfile": "Mój profil",
+    "logout": "Wyloguj się"
   },
   "validation": {
     "required": "To pole jest wymagane",
@@ -15,5 +19,14 @@
     "drag&Drop": "Przenieś zdjęcie tutaj lub",
     "dropHere": "Upuść tutaj",
     "add": "Wybierz zdjęcie z plików"
+  },
+  "notifications": {
+    "login": {
+      "success": "Zostałeś zalogowany"
+    },
+    "register": {
+      "success": "Zostałeś zarejestowany"
+    },
+    "error": "Przepraszamy wystąpił błąd"
   }
 }

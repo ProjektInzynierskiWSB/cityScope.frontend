@@ -40,7 +40,7 @@ const Auth = () => {
           {t('buttons.backToLogin')}
         </RegisterButton>
       </Column>
-      <RegisterForm setIsLoginView={setIsLoginView} />
+      <RegisterForm />
     </>
   )
   return (

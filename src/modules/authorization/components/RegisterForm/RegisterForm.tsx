@@ -1,15 +1,11 @@
 import { Button } from '@mui/material'
 import { Form, TextField } from 'shared/components'
 import { useModuleTranslation } from '../../utils'
-import { useFormProps } from './RegisterForm.config'
+import { useFormProps } from './RegisterForm.utils'
 
-const RegisterForm = ({
-  setIsLoginView,
-}: {
-  setIsLoginView: (value: boolean) => void
-}) => {
-  const { onSubmit } = useFormProps(setIsLoginView)
-  const formProps = useFormProps(setIsLoginView)
+const RegisterForm = () => {
+  const { onSubmit } = useFormProps()
+  const formProps = useFormProps()
   const { t } = useModuleTranslation()
 
   return (

@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import { RouteObject } from 'react-router-dom'
 import { paths } from 'config'
-import { Layout, Loadable } from 'shared/components'
+import { Layout, Loadable, PrivateRoute } from 'shared/components'
 
 const routes: RouteObject[] = [
   {
@@ -21,11 +21,13 @@ const routes: RouteObject[] = [
       },
       {
         index: true,
-        path: paths.offerForm,
+        path: paths.announcementForm,
         element: (
-          <Loadable
-            component={lazy(() => import('./views/CreateAnnouncement'))}
-          />
+          <PrivateRoute>
+            <Loadable
+              component={lazy(() => import('./views/CreateAnnouncement'))}
+            />
+          </PrivateRoute>
         ),
       },
     ],

@@ -14,5 +14,9 @@
       "category": "Kategoria"
     },
     "submit": "Opublikuj ogłoszenie"
+  },
+  "announcement": {
+    "grades": "Oceny",
+    "order": "Zamów"
   }
 }

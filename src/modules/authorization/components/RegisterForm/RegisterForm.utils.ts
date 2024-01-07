@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useRegisterMutation } from 'services/authApi'
+import { paths } from 'config'
+import { authApi } from 'shared/store/api'
 import { useRegisterSchema } from './RegisterForm.validator'
 
 export enum RegisterFormFields {
@@ -21,27 +24,25 @@ export const defaultValues: RegisterFormValues = {
   [RegisterFormFields.ConfirmPassword]: '',
 }
 
-const useOnSubmit = (
-  reset: () => void,
-  setIsLoginView: (value: boolean) => void
-) => {
-  const [register] = useRegisterMutation()
+const useOnSubmit = () => {
+  const [register] = authApi.useRegisterMutation()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
 
-  const onSubmit = (formValues: RegisterFormValues) => {
-    console.log(formValues)
-    register(formValues)
-      .unwrap()
-      .then(response => {
-        console.log(response)
-        setIsLoginView(true)
-        reset()
-      })
-      .catch(e => console.log(e))
+  const onSubmit = async (formValues: RegisterFormValues) => {
+    try {
+      await register({
+        ...formValues,
+        errorMessage: t('notifications.error') || true,
+        successMessage: t('notifications.login.success') || true,
+      }).unwrap()
+      navigate(paths.home)
+    } catch {}
   }
   return onSubmit
 }
 
-export const useFormProps = (setIsLoginView: (value: boolean) => void) => {
+export const useFormProps = () => {
   const registerSchema = useRegisterSchema()
   const methods = useForm<RegisterFormValues>({
     defaultValues: defaultValues,
@@ -49,6 +50,6 @@ export const useFormProps = (setIsLoginView: (value: boolean) => void) => {
     reValidateMode: 'onSubmit',
   })
 
-  const onSubmit = useOnSubmit(methods.reset, setIsLoginView)
+  const onSubmit = useOnSubmit()
   return { ...methods, onSubmit }
 }

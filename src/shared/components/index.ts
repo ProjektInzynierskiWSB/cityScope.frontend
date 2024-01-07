@@ -25,6 +25,12 @@ export type { LoaderProps } from './Loader'
 export { default as NotFound } from './NotFound'
 export type { NotFoundProps } from './NotFound'
 
+export { default as PrivateRoute } from './PrivateRoute'
+export type { PrivateRouteProps } from './PrivateRoute'
+
+export { default as NotificationsProvider } from './NotificationsProvider'
+export type { NotificationsProviderProps } from './NotificationsProvider'
+
 export { default as SelectField } from './SelectField'
 
 export { default as TopBar } from './TopBar'
