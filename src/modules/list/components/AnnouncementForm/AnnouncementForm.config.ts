@@ -1,45 +1,9 @@
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { listApi } from 'shared/store/api'
 import { useAnnouncementSchema } from './AnnouncementForm.validator'
-
-export const mock = [
-  {
-    value: 1,
-    key: 'Grocery',
-  },
-  {
-    value: 2,
-    key: 'Tools',
-  },
-  {
-    value: 3,
-    key: 'Industrial',
-  },
-  {
-    value: 4,
-    key: 'Home',
-  },
-  {
-    value: 5,
-    key: 'Automotive',
-  },
-  {
-    value: 6,
-    key: 'Electronics',
-  },
-  {
-    value: 7,
-    key: 'Outdoors',
-  },
-  {
-    value: 8,
-    key: 'Beauty',
-  },
-  {
-    value: 10,
-    key: 'Health',
-  },
-]
 
 export enum AnnouncementFormFields {
   Title = 'title',
@@ -54,20 +18,34 @@ export interface AnnouncementFormValues {
   [AnnouncementFormFields.Description]: string
   [AnnouncementFormFields.Price]: number
   [AnnouncementFormFields.Image]?: File | null
-  [AnnouncementFormFields.Category]: number
+  [AnnouncementFormFields.Category]: string
 }
 
 export const defaultValues: AnnouncementFormValues = {
   [AnnouncementFormFields.Title]: '',
   [AnnouncementFormFields.Description]: '',
   [AnnouncementFormFields.Price]: 1,
-  [AnnouncementFormFields.Image]: undefined,
-  [AnnouncementFormFields.Category]: mock[0].value,
+  [AnnouncementFormFields.Image]: null,
+  [AnnouncementFormFields.Category]: '',
 }
 
 const useOnSubmit = (reset: () => void) => {
-  const onSubmit = (data: AnnouncementFormValues) => {
-    console.log(data)
+  const [postAnnouncement] = listApi.usePostAnnouncementMutation()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+
+  const onSubmit = async (formValues: AnnouncementFormValues) => {
+    try {
+      await postAnnouncement({
+        ...formValues,
+        image: formValues.image || null,
+        mainCategoryId: parseInt(formValues.category),
+        errorMessage: t('notifications.error') || true,
+        successMessage: t('notifications.announcement.postSuccess') || true,
+      })
+        .unwrap()
+        .then(response => console.log(response))
+    } catch {}
   }
   return onSubmit
 }

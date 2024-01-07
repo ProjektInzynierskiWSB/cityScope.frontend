@@ -14,7 +14,7 @@ export const useAnnouncementSchema = () => {
       .required(),
     price: number().required(),
     image: mixed(),
-    category: number().required(),
+    category: string().required(),
   }).required()
   return announcementSchema
 }

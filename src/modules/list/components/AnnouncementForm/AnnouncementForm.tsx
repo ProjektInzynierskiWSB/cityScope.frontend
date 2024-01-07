@@ -1,14 +1,25 @@
+import { useSelector } from 'react-redux'
 import { Button } from '@mui/material'
-import { Form, TextField, SelectField, FileDropDown } from 'shared/components'
+import {
+  Form,
+  TextField,
+  SelectField,
+  FileDropDown,
+  Loader,
+} from 'shared/components'
+import { listApi } from 'shared/store/api'
+import listStore from 'shared/store/list'
 import { useModuleTranslation } from '../../utils'
-import { mock, useFormProps } from './AnnouncementForm.config'
+import { useFormProps } from './AnnouncementForm.config'
 import { InputsContainer } from './AnnouncementForm.styles'
 
 const AnnouncementForm = () => {
   const { onSubmit } = useFormProps()
   const formProps = useFormProps()
   const { t } = useModuleTranslation()
+  const { isLoading } = listApi.useGetMainCategoriesQuery({})
 
+  const mainCategories = useSelector(listStore.selectors.getMainCtegories)
   return (
     <Form {...formProps} onSubmit={onSubmit}>
       <InputsContainer>
@@ -34,12 +45,15 @@ const AnnouncementForm = () => {
           type="number"
         />
         <FileDropDown name="image" />
-        <SelectField
-          name="category"
-          label={t('announcementForm.inputs.category')}
-          options={mock}
-          defaultValue={mock[0].value}
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <SelectField
+            name="category"
+            label={t('announcementForm.inputs.category')}
+            options={mainCategories}
+          />
+        )}
         <Button type="submit" variant="contained">
           {t('announcementForm.submit')}
         </Button>

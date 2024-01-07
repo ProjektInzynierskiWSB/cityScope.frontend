@@ -27,6 +27,9 @@
     "register": {
       "success": "Zostałeś zarejestowany"
     },
+    "announcement": {
+      "postSuccess": "Ogłoszenie zostało dodane"
+    },
     "error": "Przepraszamy wystąpił błąd"
   }
 }
