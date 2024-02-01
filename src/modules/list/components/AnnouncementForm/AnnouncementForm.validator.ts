@@ -10,7 +10,7 @@ export const useAnnouncementSchema = () => {
       .required(),
     description: string()
       .min(20, () => t('validation.minLength', { value: '20' }))
-      .max(300, () => t('validation.maxLength', { value: '300' }))
+      .max(600, () => t('validation.maxLength', { value: '600' }))
       .required(),
     price: number().required(),
     image: mixed(),

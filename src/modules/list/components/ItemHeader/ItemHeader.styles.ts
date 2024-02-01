@@ -1,9 +1,11 @@
-import { alpha, styled } from '@mui/material'
+import { Button, Typography, alpha, styled } from '@mui/material'
 
 export const Container = styled('div')(({ theme }) => ({
-  height: 400,
+  minHeight: 400,
+  width: '100%',
   display: 'flex',
   borderRadius: 8,
+  gap: theme.spacing(2),
   ...(theme.palette.mode === 'light'
     ? { border: 'none', boxShadow: '0px 0px 20px 0px rgba(66, 68, 90, 0.05)' }
     : {
@@ -12,13 +14,13 @@ export const Container = styled('div')(({ theme }) => ({
       }),
 }))
 
-export const ImageContainer = styled('div')({
-  width: 400,
+export const ImageContainer = styled('div')(({ theme }) => ({
   height: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-})
+  padding: theme.spacing(1),
+}))
 
 export const Image = styled('img')({
   width: 380,
@@ -28,7 +30,7 @@ export const Image = styled('img')({
 })
 
 export const ContentContainer = styled('div')(({ theme }) => ({
-  width: 800,
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
   padding: theme.spacing(4, 4, 4, 2),
@@ -36,9 +38,18 @@ export const ContentContainer = styled('div')(({ theme }) => ({
   overflow: 'hidden',
 }))
 
+export const OrderButton = styled(Button)({
+  marginTop: 'auto',
+  marginLeft: 'auto',
+  width: 300,
+})
+
+export const ColoredText = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.light,
+}))
+
 export const Row = styled('div')({
   width: '100%',
   display: 'flex',
-  alignItems: 'center',
   justifyContent: 'space-between',
 })

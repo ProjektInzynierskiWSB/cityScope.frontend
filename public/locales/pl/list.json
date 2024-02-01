@@ -1,8 +1,11 @@
 {
   "seeAnnouncement": "zobacz ofertę",
+  "added": "Dodano",
+  "currency": "zł",
+  "all": "wszystkie",
   "navigateToAnnouncementForm": {
     "content": "Również masz coś na sprzedaż? Nie czekaj, przejdź dalej i",
-    "buttonText": "Stwóż własną ofertę"
+    "buttonText": "Utrórz własną ofertę"
   },
   "announcementForm": {
     "title": "Wypełnij poniższe pola aby dodać własne ogłoszenie",
@@ -16,7 +19,9 @@
     "submit": "Opublikuj ogłoszenie"
   },
   "announcement": {
-    "grades": "Oceny",
-    "order": "Zamów"
+    "contactData": "Dane właściciela: ",
+    "order": "Zamów",
+    "email": "Email: ",
+    "name": "Nazwa: "
   }
 }

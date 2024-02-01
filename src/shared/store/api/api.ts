@@ -24,6 +24,7 @@ const api = createApi({
     credentials: 'same-origin',
   }),
   endpoints: () => ({}),
+  tagTypes: ['Announcement'],
 })
 
 export default api

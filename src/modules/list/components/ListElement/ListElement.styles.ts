@@ -44,8 +44,8 @@ export const DescriptionContainer = styled('div')({
   '& > p': {
     display: '-webkit-box',
     overflow: 'hidden',
-    '-webkit-line-clamp': '5',
-    '-webkit-box-orient': 'vertical',
+    WebkitLineClamp: '5',
+    WebkitBoxOrient: 'vertical',
   },
 })
 

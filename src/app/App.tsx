@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<Loader />}>
-        <NotificationsProvider>
+        <NotificationsProvider autoHideDuration={2000}>
           <CustomContextThemeProvider>
             <CssBaseline />
             <Suspense fallback={<Loader />}>

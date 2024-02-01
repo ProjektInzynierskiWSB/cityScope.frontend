@@ -1,5 +1,12 @@
 import api from '../api'
-import { AnnouncementPayload, MainCategoryResponse } from './list.types'
+import {
+  PostAnnouncementPayload,
+  GetAnnouncementsPayload,
+  GetAnnouncementsResponse,
+  MainCategoryResponse,
+  GetAnnouncementResponse,
+  GetAnnouncementPayload,
+} from './list.types'
 
 export const listApi = api.injectEndpoints({
   endpoints: builder => ({
@@ -9,12 +16,36 @@ export const listApi = api.injectEndpoints({
         url: '/MainCategory',
       }),
     }),
-    postAnnouncement: builder.mutation<any, AnnouncementPayload>({
-      query: ({ errorMessage, successMessage, ...body }) => ({
+
+    getAnnouncements: builder.query<
+      GetAnnouncementsResponse,
+      GetAnnouncementsPayload
+    >({
+      query: body => ({
+        method: 'GET',
+        url: '/Announcement',
+        params: body,
+      }),
+      providesTags: ['Announcement'],
+    }),
+
+    getAnnouncement: builder.query<
+      GetAnnouncementResponse,
+      GetAnnouncementPayload
+    >({
+      query: ({ id }) => ({
+        method: 'GET',
+        url: `/Announcement/${id}`,
+      }),
+    }),
+
+    postAnnouncement: builder.mutation<any, PostAnnouncementPayload>({
+      query: ({ formData }) => ({
         method: 'POST',
         url: '/Announcement',
-        body: body,
+        body: formData,
       }),
+      invalidatesTags: ['Announcement'],
     }),
   }),
 })
