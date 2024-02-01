@@ -16,10 +16,44 @@ export interface MainCategoryResponse {
   message: string
 }
 
-export interface AnnouncementPayload extends ApiMiddlewarePayload {
-  title: string
+export interface PostAnnouncementPayload extends ApiMiddlewarePayload {
+  formData: FormData
+}
+
+export interface Announcement {
+  categoryId: number
+  createdDate: string
   description: string
+  id: number
+  imageUrl: string | null
   price: number
-  image: File | null
-  mainCategoryId: number
+  title: string
+  userEmail: string
+  userId: number
+  userName: string
+}
+export interface GetAnnouncementsResponse {
+  data: {
+    pageSize: number
+    page: number
+    allCount: number
+    announcements: Announcement[]
+  }
+  success: boolean
+  message: string
+}
+
+export interface GetAnnouncementsPayload {
+  page: number
+  pageSize: number
+}
+
+export interface GetAnnouncementResponse {
+  data: Announcement
+  success: boolean
+  message: string
+}
+
+export interface GetAnnouncementPayload {
+  id: number
 }

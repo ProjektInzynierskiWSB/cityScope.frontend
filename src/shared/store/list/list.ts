@@ -2,14 +2,18 @@ import { createSlice } from '@reduxjs/toolkit'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { listApi } from '../api'
-import { MainCategoryState } from '../api/list'
+import { Announcement, MainCategoryState } from '../api/list'
 
 export interface State {
   mainCategories: MainCategoryState[] | null
+  annoucements: Announcement[] | null
+  annoucement: Announcement | null
 }
 
 const initialState: State = {
   mainCategories: null,
+  annoucements: null,
+  annoucement: null,
 }
 
 const list = createSlice({
@@ -21,15 +25,28 @@ const list = createSlice({
     },
   },
   extraReducers: builder =>
-    builder.addMatcher(
-      listApi.endpoints.getMainCategories.matchFulfilled,
-      (state, { payload: { data } }) => {
-        state.mainCategories = data.map(category => ({
-          value: category.id,
-          key: category.name,
-        }))
-      }
-    ),
+    builder
+      .addMatcher(
+        listApi.endpoints.getMainCategories.matchFulfilled,
+        (state, { payload: { data } }) => {
+          state.mainCategories = data.map(category => ({
+            value: category.id,
+            key: category.name,
+          }))
+        }
+      )
+      .addMatcher(
+        listApi.endpoints.getAnnouncements.matchFulfilled,
+        (state, { payload: { data } }) => {
+          state.annoucements = data.announcements
+        }
+      )
+      .addMatcher(
+        listApi.endpoints.getAnnouncement.matchFulfilled,
+        (state, { payload: { data } }) => {
+          state.annoucement = data
+        }
+      ),
 })
 
 const persistConfig = {

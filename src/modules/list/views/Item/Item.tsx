@@ -1,14 +1,46 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Typography } from '@mui/material'
+import { useModuleTranslation } from 'modules/list/utils'
+import { Loader } from 'shared/components'
+import { listApi } from 'shared/store/api'
 import ItemHeader from '../../components/ItemHeader'
-import { mockItems } from '../ItemList/ItemList.mock'
-import { Container } from './Item.styles'
+import { Container, UserContainer } from './Item.styles'
 
 const Item = () => {
+  const { t } = useModuleTranslation()
   const { id } = useParams()
-  const mockItem = mockItems[3]
+  const { data } = listApi.useGetAnnouncementQuery({
+    id: parseInt(id || '1'),
+  })
+  const [isUserVisible, setIsUserVisible] = useState(false)
+
   return (
     <Container>
-      <ItemHeader {...mockItem} />
+      {data ? (
+        <>
+          <ItemHeader
+            isUserVisible={isUserVisible}
+            setIsUserVisible={setIsUserVisible}
+            {...data.data}
+          />
+          {isUserVisible && (
+            <UserContainer>
+              <Typography variant="h6">
+                {t('announcement.contactData')}
+              </Typography>
+              <Typography variant="h6">
+                {t('announcement.name') + data.data.userName}
+              </Typography>
+              <Typography variant="h6">
+                {t('announcement.email') + data.data.userEmail}
+              </Typography>
+            </UserContainer>
+          )}
+        </>
+      ) : (
+        <Loader />
+      )}
     </Container>
   )
 }
