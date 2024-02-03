@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Typography } from '@mui/material'
+import { Typography } from '@material-ui/core'
 import { useModuleTranslation } from 'modules/list/utils'
 import { Loader } from 'shared/components'
 import { listApi } from 'shared/store/api'

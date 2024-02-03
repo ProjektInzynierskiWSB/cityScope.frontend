@@ -40,7 +40,7 @@ const Auth = () => {
           {t('buttons.backToLogin')}
         </RegisterButton>
       </Column>
-      <RegisterForm />
+      <RegisterForm switchViews={switchViews} />
     </>
   )
   return (
@@ -51,7 +51,9 @@ const Auth = () => {
       <BackgroundElement />
       <BackgroundElement2 />
       <BackgroundElement3 />
-      <Content>{isLoginView ? LoginView() : RegisterView()}</Content>
+      <Content isLoginView={isLoginView}>
+        {isLoginView ? LoginView() : RegisterView()}
+      </Content>
     </Container>
   )
 }

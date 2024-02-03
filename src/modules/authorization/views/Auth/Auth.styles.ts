@@ -41,8 +41,10 @@ export const BackgroundElement3 = styled(BackgroundElement)({
   animationDuration: '19s',
 })
 
-export const Content = styled('div')(({ theme }) => ({
-  height: 366,
+export const Content = styled('div', {
+  shouldForwardProp: prop => prop !== 'isLoginView',
+})<{ isLoginView: boolean }>(({ isLoginView, theme }) => ({
+  height: isLoginView ? 340 : 440,
   boxSizing: 'border-box',
   left: '50%',
   top: '50%',
@@ -56,6 +58,7 @@ export const Content = styled('div')(({ theme }) => ({
   alignItems: 'flex-end',
   padding: theme.spacing(6),
   gap: theme.spacing(4),
+  transition: 'height  0.6s ease-in-out',
 }))
 
 export const Column = styled('div')(({ theme }) => ({

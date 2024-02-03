@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Logout from '@mui/icons-material/Logout'
 import {
   Avatar,
@@ -15,6 +15,7 @@ import { CenterBox, StyledMenu, UserAvatar } from './UserMenu.styles'
 
 const UserMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const uesrName = useSelector(authStore.selectors.getUserName)
   const open = Boolean(anchorEl)
   const dispatch = useDispatch()
   const { t } = useTranslation()
@@ -43,7 +44,7 @@ const UserMenu = () => {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <UserAvatar>A</UserAvatar>
+            <UserAvatar>{uesrName?.charAt(0) || 'U'}</UserAvatar>
           </IconButton>
         </Tooltip>
       </CenterBox>
@@ -56,7 +57,7 @@ const UserMenu = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> {t('topBar.myProfile')}
+          <Avatar /> {uesrName || t('topBar.myProfile')}
         </MenuItem>
         <Divider />
         <MenuItem onClick={logout}>

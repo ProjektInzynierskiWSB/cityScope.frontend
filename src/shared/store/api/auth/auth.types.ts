@@ -2,6 +2,7 @@ import { ApiMiddlewarePayload } from '../api.types'
 
 export interface RegisterPayload extends ApiMiddlewarePayload {
   email: string
+  nickName: string
   password: string
   confirmPassword: string
 }
@@ -18,7 +19,10 @@ export interface LoginPayload extends ApiMiddlewarePayload {
 }
 
 export interface LoginResponse {
-  data: string
+  data: {
+    token: string
+    userName: string
+  }
   success: boolean
   message: string
 }

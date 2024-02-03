@@ -19,14 +19,10 @@ export const authApi = api.injectEndpoints({
       }),
     }),
     register: builder.mutation<RegisterResponse, RegisterPayload>({
-      query: ({ email, password, confirmPassword }) => ({
+      query: body => ({
         method: 'POST',
         url: '/Auth/Register',
-        body: {
-          email,
-          password,
-          confirmPassword,
-        },
+        body: body,
       }),
     }),
   }),

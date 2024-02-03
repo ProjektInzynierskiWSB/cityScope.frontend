@@ -17,6 +17,7 @@ export const UserContainer = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   borderRadius: 8,
   padding: theme.spacing(2),
+  minHeight: 100,
   ...(theme.palette.mode === 'light'
     ? { border: 'none', boxShadow: '0px 0px 20px 0px rgba(66, 68, 90, 0.05)' }
     : {

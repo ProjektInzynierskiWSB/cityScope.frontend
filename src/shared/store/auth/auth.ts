@@ -5,10 +5,12 @@ import { authApi } from '../api'
 
 export interface State {
   token: string | null
+  userName: string | null
 }
 
 const initialState: State = {
   token: null,
+  userName: null,
 }
 
 const auth = createSlice({
@@ -23,25 +25,19 @@ const auth = createSlice({
     },
   },
   extraReducers: builder =>
-    builder
-      .addMatcher(
-        authApi.endpoints.login.matchFulfilled,
-        (state, { payload: { data } }) => {
-          state.token = data
-        }
-      )
-      .addMatcher(
-        authApi.endpoints.register.matchFulfilled,
-        (state, { payload: { data } }) => {
-          state.token = data
-        }
-      ),
+    builder.addMatcher(
+      authApi.endpoints.login.matchFulfilled,
+      (state, { payload: { data } }) => {
+        state.token = data.token
+        state.userName = data.userName
+      }
+    ),
 })
 
 const persistConfig = {
   storage,
   key: 'persist-auth-state',
-  whiteList: ['token'],
+  whiteList: ['token', 'userName'],
 }
 
 const reducer = {

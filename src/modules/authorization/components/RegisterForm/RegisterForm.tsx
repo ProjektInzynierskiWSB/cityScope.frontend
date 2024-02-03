@@ -3,9 +3,13 @@ import { Form, TextField } from 'shared/components'
 import { useModuleTranslation } from '../../utils'
 import { useFormProps } from './RegisterForm.utils'
 
-const RegisterForm = () => {
-  const { onSubmit } = useFormProps()
-  const formProps = useFormProps()
+export interface RegisterFormProps {
+  switchViews: () => void
+}
+
+const RegisterForm = ({ switchViews }: RegisterFormProps) => {
+  const formProps = useFormProps(switchViews)
+  const { onSubmit } = formProps
   const { t } = useModuleTranslation()
 
   return (
@@ -15,6 +19,12 @@ const RegisterForm = () => {
         label={t('inputs.email')}
         variant="filled"
         id="email"
+      />
+      <TextField
+        name="nickName"
+        label={t('inputs.nickName')}
+        variant="filled"
+        id="nickName"
       />
       <TextField
         name="password"
