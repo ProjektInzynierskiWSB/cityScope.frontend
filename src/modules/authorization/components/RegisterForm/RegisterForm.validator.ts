@@ -10,6 +10,10 @@ export const useRegisterSchema = () => {
       .max(60, () => t('validation.maxLength', { value: '60' }))
       .required()
       .email(() => t('validation.email')),
+    nickName: string()
+      .min(3, () => t('validation.minLength', { value: '3' }))
+      .max(30, () => t('validation.maxLength', { value: '40' }))
+      .required(),
     password: string()
       .min(3, () => t('validation.minLength', { value: '3' }))
       .max(40, () => t('validation.maxLength', { value: '40' }))

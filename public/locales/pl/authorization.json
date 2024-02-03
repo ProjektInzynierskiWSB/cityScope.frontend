@@ -5,6 +5,7 @@
   "registerInfo": "Podaj swój adres e-mail, nazwę użytkownika oraz silne hasło zawierające przynajmniej jedną: wielką literę, cyfrę i znak specjalny.",
   "inputs": {
     "email": "Email",
+    "nickName": "Nazwa użytkownika",
     "password": "Hasło",
     "passwordRepeat": "Powtórz hasło"
   },
